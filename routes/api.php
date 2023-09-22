@@ -15,6 +15,12 @@ use App\Http\Controllers\taskController;
 |
 */
 Route::get('/tasks',[taskController::class, 'index']);
+Route::put('/tasks/{id}', [TaskController::class, 'update']);
+Route::post('/tasks', [taskController::class, 'store']);
+Route::delete('/tasks/{id}', [TaskController::class, 'destroy']);
+Route::post('/register', [AuthController::class, 'register']);
+
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
